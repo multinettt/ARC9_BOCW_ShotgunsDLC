@@ -7,7 +7,7 @@
 --   SWEP INFORMATION:
 
 --   BASE  : ARC9
---   BUILD : v1.0
+--   BUILD : v2025.12
 --   SR.NO : A19718
 
 
@@ -33,7 +33,7 @@ SWEP.SubCategory = "7Shotguns"
 SWEP.AdminOnly = false
 
 SWEP.PrintName = ".410 Ironhide"
-SWEP.TrueName = "Henry .410 Lever Action"
+SWEP.TrueName = "Henry .410"
 SWEP.Class = "Shotgun"
 SWEP.Trivia = {
      Manufacturer = "Henry USA",
@@ -246,7 +246,15 @@ SWEP.ShootWhileSprint = false
 SWEP.Speed = 1
 
 SWEP.SpeedMult = 1
-SWEP.SpeedMultSprint = 0.706
+
+local SprintMultCvar = GetConVar("arc9_bocw_sprintmultiplier")
+
+if SprintMultCvar:GetBool() then
+    SWEP.SpeedMultSprint = 0.706 -- SPRINT SPEED RELATIVE TO MOVE SPEED
+else
+    SWEP.SpeedMultSprint = 1 -- this may possibly change later
+end
+
 SWEP.SpeedMultSights = 0.8
 SWEP.SpeedMultShooting = 0.85
 SWEP.SpeedMultMelee = 0.8
@@ -659,6 +667,23 @@ SWEP.Attachments = {
         CosmeticOnly = true,
     },
 }
+
+--=========================================================
+-- CUSTOM SLOT INSERTION
+local CustomSlotCvar = GetConVar("arc9_bocw_customslot")
+local CustomSlotTable = {
+    PrintName = "Custom Slot",
+    Bone = "tag_stock",
+    Pos = Vector(0, 0, 0),
+    Ang = Angle(0, 0, 0),
+    Icon_Offset = Vector(-3.5, 0, -1),
+    Category = {"bocw_custom_slot", "bocw_custom_slot_410ironhide"},
+}
+
+if CustomSlotCvar:GetBool() then
+    table.insert(SWEP.Attachments, CustomSlotTable)
+end
+--=========================================================
 
 SWEP.Hook_ModifyBodygroups = function(self, data)
 
