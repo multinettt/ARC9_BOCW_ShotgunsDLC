@@ -4,8 +4,6 @@
 
 Cold War consists 2 more shotguns added after launch. Here they are.
 
-## [ARC9 BOCW Shotguns DLC on Steam Workshop](https://steamcommunity.com/sharedfiles/filedetails/?id=3423340592)
-
 ## You need to have [Shared Content](https://github.com/multinettt/ARC-9_BOCW_Shared_Content) in order to avoid missing textures, materials and sounds.
 
 ## [BOCW Attachments](https://github.com/multinettt/ARC-9_BOCW_Attachments)
